@@ -1,15 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
 
-class App extends Component {
+import NotFoundPage from "./containers/pages/not_found";
+import Home from "./containers/home/home";
+import Test from "./containers/test/test";
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Switch></Switch>
+      <div>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={routeProps => {
+              return <Test {...routeProps} />;
+            }}
+          />
+          <Route exact path="/home" render={routeProps => {
+            return <Home {...routeProps} />;
+          }} />
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
