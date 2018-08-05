@@ -1,9 +1,9 @@
+import { Drawer, Button, Menu, Icon } from 'antd';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './opinionated.css';
-import './react-treeview.css';
-import { fetchSubCategory } from '../../_actions/action'
-import TreeView from 'react-treeview';
+import { fetchSubCategory } from '../../../_actions/action'
+
+const SubMenu = Menu.SubMenu;
 
 const dataSource = [
   {
@@ -141,49 +141,63 @@ const dataSource = [
   },
 ];
 
-class SubCategory extends React.Component {
+class CategoryDrawer extends React.Component {
+  state = { visible: false };
+
   constructor(props) {
     super(props);
     this.state = { 
       subCategoryCode: '',
-      name: '',
     };
   }
+
   handleClick = (e, subCategory) => {
     this.props.fetchSubCategory(subCategory);
   }
 
-  render() {
-    const promise = this.props.subCategoryReducer.subCategory;
-    var promise1 = Promise.resolve(promise);
-
-    promise1.then((value) => {
-      console.log(value);
+  showDrawer = () => {
+    this.setState({
+      visible: true,
     });
+  };
 
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render() {
+    let categoryType = dataSource.map(category => {
+      let subCategory = category.sub.map(subCategory => {
+        return (<Menu.Item onClick = {(e) => this.handleClick(e, subCategory.code)}>{subCategory.name}</Menu.Item>);
+      });
+      return (<SubMenu title={<span><Icon type="bars" /><span>{category.type}</span></span>}>
+        {subCategory}
+        </SubMenu>);
+   });
     return (
-      <div className="b">
-        {dataSource.map((node, i) => {
-          const type = node.type;
-          const label = <span className="node">{type}</span>;
-          return (
-            <TreeView key={type + '|' + i} nodeLabel={label} defaultCollapsed={true}>
-              {node.sub.map(sub => {
-                const subCode = `http://localhost:3000/v1/${sub.code}/recents`;
-                return (
-                  <div className="info">
-                    <a
-                      href="#"
-                      onClick = {(e) => this.handleClick(e, sub.code)}
-                    >{sub.name}
-                    </a>
-                    <br /><br />
-                </div>
-                );
-              })}
-            </TreeView>
-          );
-        })}
+      <div>
+        <Button type="primary" onClick={this.showDrawer}>
+          <Icon type={this.state.visible ? 'menu-unfold' : 'menu-fold'} />
+        </Button>
+
+        <Drawer
+          placement="left"
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+        >
+        <Menu
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          theme="dark"
+          inlineCollapsed={this.state.collapsed}
+        >
+        {categoryType}  
+        </Menu>
+        </Drawer>
       </div>
     );
   }
@@ -197,4 +211,5 @@ const mapDispatchToProps = dispatch => ({
   fetchSubCategory: (subCategory) => dispatch(fetchSubCategory(subCategory))
  })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubCategory);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryDrawer);
+

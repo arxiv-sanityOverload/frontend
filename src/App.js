@@ -11,20 +11,21 @@ import Community from './containers/community/community'
 import Contact from './containers/contact/contact'
 import Donate from './containers/donate/donate'
 import Recent from './containers/recent/recent'
+import MainLayout from './containers/_layout/mainLayout'
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <NavigationBar />
-        <Switch>
-          <Route exact path="/"  render={routeProps => {
+        <MainLayout />
+        {/* <Switch> */}
+          {/* <Route exact path="/"  render={routeProps => {
               return <Test {...routeProps} />;
           }} />
           <Route exact path="/home" render={routeProps => {
             return <Home {...routeProps} />;
-          }} />
-          <Route exact path="/category" render={routeProps => {
+          }} /> */}
+          {/* <Route exact path="/category" render={routeProps => {
             return <Category {...routeProps} />;
           }} />
           <Route exact path="/community" render={routeProps => {
@@ -39,8 +40,8 @@ class App extends React.Component {
           <Route exact path="/recent" render={routeProps => {
             return <Recent {...routeProps} />;
           }} />
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
+          <Route path="*" component={NotFoundPage} /> */}
+        {/* </Switch> */}
       </div>
     );
   }
