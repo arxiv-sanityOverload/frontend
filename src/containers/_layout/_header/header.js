@@ -28,9 +28,6 @@ class NavigationBar extends React.Component {
             >
               <Menu.Item>
                 <Link to="/category">
-                {/* <CategoryMenu />
-                  Uncomment this for Category Menu component
-                */}
                   <CategoryDrawer />
                 </Link>    
               </Menu.Item>
