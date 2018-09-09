@@ -1,69 +1,76 @@
-import { Card } from 'antd';
+import { Card, Icon } from 'antd';
 import React, { Component } from 'react';
 
 const tabList = [{
-  key: 'tab1',
-  tab: 'tab1',
+  key: 'Title',
+  tab: 'Title',
 }, {
-  key: 'tab2',
-  tab: 'tab2',
-}];
-
-const contentList = {
-  tab1: <p>content1</p>,
-  tab2: <p>content2</p>,
-};
-
-const tabListNoTitle = [{
-  key: 'article',
-  tab: 'article',
+  key: 'Abstract',
+  tab: 'Abstract',
 }, {
-  key: 'app',
-  tab: 'app',
+  key: 'Link',
+  tab: 'Link',
 }, {
-  key: 'project',
-  tab: 'project',
-}];
-
-const contentListNoTitle = {
-  article: <p>article content</p>,
-  app: <p>app content</p>,
-  project: <p>project content</p>,
-};
+  key: 'Other',
+  tab: 'Other',
+}, {
+  key: 'Download',
+  tab: 'Download',
+},
+//  {
+//   key: 'Github',
+//   tab: 'Github',
+// }
+];
 
 class TabsCard extends React.Component {
-  state = {
-    key: 'tab1',
-    noTitleKey: 'app',
+  constructor(props) {
+    super(props);
+    this.state = { 
+      key: 'Title',
+    };
+  }
+
+  contentList = {
+    Title: <p>{this.props.itemName.title}</p>,
+    Abstract: <p>{this.props.itemName.abstract}</p>,
+    Link: <p><a href={this.props.itemName.abs_page_link} target="_blank">{this.props.itemName.abs_page_link}</a></p>,
+    Other: <p>Arxiv ID : {this.props.itemName.arxiv_id} <br />
+              Published on : {this.props.itemName.published}  <br /> 
+              Authors : {this.props.itemName.authors} <br />
+              Journal reference : {this.props.itemName.journal_ref}
+            </p>,
+    Download: <p><a href={this.props.itemName.pdf_link} target="_blank">{this.props.itemName.pdf_link}</a></p>,
+    // Github:  <Icon type="github" />
   }
 
   onTabChange = (key, type) => {
-    console.log(key, type);
-    this.setState({ [type]: key });
-  }
+    this.setState({
+      [type]: key });
+    }
 
   render() {
     return (
       <div>
         <Card
-          style={{ width: '100%' }}
-          title="Card title"
-          extra={<a href="#">More</a>}
+          // style={{ width: '100%' }}
+          // title={this.props.itemName.title}
+          // extra={<a href="#">More</a>}
           tabList={tabList}
           activeTabKey={this.state.key}
           onTabChange={(key) => { this.onTabChange(key, 'key'); }}
+          actions={[
+            <div>
+              <span> 56 </span><Icon type="like-o" />
+            </div>,
+            <div> 
+              <span>  4 </span><Icon type="dislike-o" />
+            </div>,
+            <Icon type="edit" />,
+            <Icon type="github" />,
+           ]}
         >
-          {contentList[this.state.key]}
-        
-        <br /><br />
-        <Card
-          style={{ width: '100%' }}
-          tabList={tabListNoTitle}
-          activeTabKey={this.state.noTitleKey}
-          onTabChange={(key) => { this.onTabChange(key, 'noTitleKey'); }}
-        >
-          {contentListNoTitle[this.state.noTitleKey]}
-        </Card>
+        {this.contentList[this.state.key]}
         </Card>
       </div>
     );
