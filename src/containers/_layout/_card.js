@@ -16,10 +16,7 @@ const tabList = [{
 }, {
   key: 'Download',
   tab: 'Download',
-},
-];
-
-const similar = [{
+},{
   key: 'SimilarPapers',
   tab: 'Similar Papers',
 }, {
@@ -27,18 +24,18 @@ const similar = [{
   tab: 'Github',
 }
 ];
+
 class TabsCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
       key: 'Title',
-      similarKey: 'SimilarPapers',
       githubData: [],
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.github.com/repositories?q=${this.props.itemName.title}`)
+    fetch(`https://api.github.com/repositories?q=${this.props.itemName.title}&sort=stars&order=desc`)
     .then(response => response.json())
     .then(
         data => {
@@ -61,21 +58,18 @@ class TabsCard extends React.Component {
               Journal reference : {this.props.itemName.journal_ref}
             </p>,
     Download: <p><a href={this.props.itemName.pdf_link} target="_blank">{this.props.itemName.pdf_link}</a></p>,
-  }
-
-  similarContentList = {
     SimilarPapers: <p>Similar</p>,
-    Github:  <p><Icon type="github" /></p>
+    Github:  <p><Icon type="github" /></p>,
   }
 
   onTabChange = (key, type) => {
     this.setState({
       [type]: key });
-    }
+  }
 
   render() {
-    console.log(this.props.itemName);
-    console.log(this.state.githubData);
+    // console.log(this.props.itemName);
+    // console.log(this.state.githubData);
     return (
       <div>
         <Card
@@ -98,15 +92,15 @@ class TabsCard extends React.Component {
         >
         {this.contentList[this.state.key]}
         </Card>
-        <br /><br />
-        <Card
+        {/* <br /><br /> */}
+        {/* <Card
           // style={{ width: '100%' }}
           tabList={similar}
           activeTabKey={this.state.similarKey}
           onTabChange={(key) => { this.onTabChange(key, 'similarKey'); }}
         >
           {this.similarContentList[this.state.similarKey]}
-        </Card>
+        </Card> */}
       </div>
     );
   }
