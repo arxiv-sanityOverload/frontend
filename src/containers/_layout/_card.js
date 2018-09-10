@@ -17,18 +17,38 @@ const tabList = [{
   key: 'Download',
   tab: 'Download',
 },
-//  {
-//   key: 'Github',
-//   tab: 'Github',
-// }
 ];
 
+const similar = [{
+  key: 'SimilarPapers',
+  tab: 'Similar Papers',
+}, {
+  key: 'Github',
+  tab: 'Github',
+}
+];
 class TabsCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
       key: 'Title',
+      similarKey: 'SimilarPapers',
+      githubData: [],
     };
+  }
+
+  componentDidMount() {
+    fetch(`https://api.github.com/repositories?q=${this.props.itemName.title}`)
+    .then(response => response.json())
+    .then(
+        data => {
+            // How can we use `this` inside a callback without binding it??
+            // Make sure you understand this fundamental difference with arrow functions!!!
+            this.setState({
+                githubData: data
+            });
+        }
+    );
   }
 
   contentList = {
@@ -41,7 +61,11 @@ class TabsCard extends React.Component {
               Journal reference : {this.props.itemName.journal_ref}
             </p>,
     Download: <p><a href={this.props.itemName.pdf_link} target="_blank">{this.props.itemName.pdf_link}</a></p>,
-    // Github:  <Icon type="github" />
+  }
+
+  similarContentList = {
+    SimilarPapers: <p>Similar</p>,
+    Github:  <p><Icon type="github" /></p>
   }
 
   onTabChange = (key, type) => {
@@ -50,6 +74,8 @@ class TabsCard extends React.Component {
     }
 
   render() {
+    console.log(this.props.itemName);
+    console.log(this.state.githubData);
     return (
       <div>
         <Card
@@ -59,18 +85,27 @@ class TabsCard extends React.Component {
           tabList={tabList}
           activeTabKey={this.state.key}
           onTabChange={(key) => { this.onTabChange(key, 'key'); }}
-          actions={[
-            <div>
-              <span> 56 </span><Icon type="like-o" />
-            </div>,
-            <div> 
-              <span>  4 </span><Icon type="dislike-o" />
-            </div>,
-            <Icon type="edit" />,
-            <Icon type="github" />,
-           ]}
+          // actions={[
+          //   <div>
+          //     <span> 56 </span><Icon type="like-o" />
+          //   </div>,
+          //   <div> 
+          //     <span>  4 </span><Icon type="dislike-o" />
+          //   </div>,
+          //   <Icon type="edit" />,
+          //   <Icon type="github" />,
+          //  ]}
         >
         {this.contentList[this.state.key]}
+        </Card>
+        <br /><br />
+        <Card
+          // style={{ width: '100%' }}
+          tabList={similar}
+          activeTabKey={this.state.similarKey}
+          onTabChange={(key) => { this.onTabChange(key, 'similarKey'); }}
+        >
+          {this.similarContentList[this.state.similarKey]}
         </Card>
       </div>
     );

@@ -20,8 +20,16 @@ class Category extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.categoryData !== prevProps.categoryData) {
+  //     this.setState({
+  //       categoryData: prevProps.categoryData,
+  //     });
+  //   }
+  // }
+
   render() {
-    console.log(this.state.categoryData);
+    //console.log(this.props.categoryData);
     var data = this.state.categoryData; 
     return (
       <div>
@@ -32,7 +40,6 @@ class Category extends React.Component {
           renderItem={item => (
               <List.Item style={{ background: '#fff' }}>
                 <TabsCard itemName = {item}/>
-                {/* <Card title={item.title}>{item.abstract}</Card> */}
               </List.Item>
             )}
         />

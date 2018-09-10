@@ -6,7 +6,7 @@ export function fetchSubCategory(subCategory) {
   return dispatch => {
     return dispatch({
       type: "SUBCATEGORY",
-      subCategory: axios.get(`http://localhost:3000/v1/${subCategory}/recents`)
+      subCategory: axios.get(`http://localhost:3000/v1/${subCategory}/recents?limit=10&offset=10`)
     })
     // .then(result => {
     //   console.log(result);
