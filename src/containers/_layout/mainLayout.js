@@ -34,7 +34,6 @@ class MainLayout extends React.Component {
   }
 
   render() {
-    console.log(this.state.categoryData);
     const categoryData = this.state.categoryData;
     return (
       <Layout className="layout">

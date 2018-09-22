@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SubCategory from '../categories/subCategory'
 import { List, Card } from 'antd';
 import TabsCard from '../_layout/_card';
+import CardWithTabs from '../_layout/_cardWithTabs';
 
 
 class Category extends React.Component {
@@ -39,7 +40,8 @@ class Category extends React.Component {
           dataSource={data}
           renderItem={item => (
               <List.Item style={{ background: '#fff' }}>
-                <TabsCard itemName = {item}/>
+                {/* <TabsCard itemName = {item}/> */}
+                <CardWithTabs itemName = {item}/>
               </List.Item>
             )}
         />

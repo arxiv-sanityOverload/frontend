@@ -1,5 +1,7 @@
 import { Card, Icon } from 'antd';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchGithubSearch } from '../../_actions/action'
 
 const tabList = [{
   key: 'Title',
@@ -30,22 +32,28 @@ class TabsCard extends React.Component {
     super(props);
     this.state = { 
       key: 'Title',
-      githubData: [],
+      githubURL: [],
+      checkData: false,
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.github.com/repositories?q=${this.props.itemName.title}&sort=stars&order=desc`)
-    .then(response => response.json())
-    .then(
-        data => {
-            // How can we use `this` inside a callback without binding it??
-            // Make sure you understand this fundamental difference with arrow functions!!!
-            this.setState({
-                githubData: data
-            });
-        }
-    );
+    this.props.fetchGithubSearch(this.props.itemName.title);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.githubReducer !== this.props.githubReducer){
+      console.log(nextProps.githubReducer);
+      const promise = Promise.resolve(nextProps.githubReducer);
+      promise.then((value) => {
+        value.data.then((githubData) => {
+          this.setState({
+            githubURL: githubData.data.items,
+            checkData: true,
+          });
+        });
+      });   
+    }
   }
 
   contentList = {
@@ -59,7 +67,15 @@ class TabsCard extends React.Component {
             </p>,
     Download: <p><a href={this.props.itemName.pdf_link} target="_blank">{this.props.itemName.pdf_link}</a></p>,
     SimilarPapers: <p>Similar</p>,
-    Github:  <p><Icon type="github" /></p>,
+    Github: 
+    //    (this.state.checkData) ? this.state.githubData.map((url, index) => {
+    //   if(index <= 9)
+    //     return(
+    //     <div>{url.html_url}</div>
+    //   )
+    // })
+    // : 
+    {},
   }
 
   onTabChange = (key, type) => {
@@ -68,8 +84,13 @@ class TabsCard extends React.Component {
   }
 
   render() {
-    // console.log(this.props.itemName);
-    // console.log(this.state.githubData);
+    this.contentList.Github = <div>
+      { (this.state.checkData) ? this.state.githubURL.map((url, index) => {
+      // if(index <= 9)
+      //   return(
+        <div><a href={url.archive_url} target="_blank">{url.archive_url}</a></div>
+      // )
+    }) : <div>No repositories found.</div>}</div>;
     return (
       <div>
         <Card
@@ -106,4 +127,12 @@ class TabsCard extends React.Component {
   }
 }
 
-export default TabsCard;
+const mapStateToProps = (state) => {
+  return { githubReducer: state.githubReducer }
+};
+
+const mapDispatchToProps = dispatch => ({
+  fetchGithubSearch: (title) => dispatch(fetchGithubSearch(title))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabsCard);

@@ -17,6 +17,23 @@ export function fetchSubCategory(subCategory) {
   };
 }
 
+export function fetchGithubSearch(title) {
+  return dispatch => {
+    return dispatch({
+      type: "GITHUB",
+      githubData: axios.get(`https://api.github.com/search/repositories?q=${title}&sort=stars&order=desc`)
+    })
+    // .then(result => {
+    //   console.log(result);
+    // }).catch(error => {
+    //   console.log(error);
+    // })
+    ;
+  };
+}
+
+
+
 export function action(payload) {
   return dispatch => {
     return dispatch({
