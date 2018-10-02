@@ -734,7 +734,7 @@ class CategoryDrawer extends React.Component {
   }
 
   handleClick = (e, subCategory) => {
-    this.props.fetchSubCategory(subCategory);
+    this.props.fetchSubCategory(subCategory, 10, 10);
   }
 
   showDrawer = () => {
@@ -790,7 +790,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchSubCategory: (subCategory) => dispatch(fetchSubCategory(subCategory))
+  fetchSubCategory: (subCategory, limit, offset) => dispatch(fetchSubCategory(subCategory, limit, offset))
  })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryDrawer);

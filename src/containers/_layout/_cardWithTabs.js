@@ -90,11 +90,11 @@ class CardWithTabs extends React.Component {
                     this.state.githubURL.items.map((url, index) => {   // Change to this.state.githubURL.map when using Redux to correct it.
                     return (
                       <div>
-                        Github Link:  <a href={url.clone_url} target="_blank">{url.clone_url}</a>
+                        Github Link:  <a href={url.clone_url} target="_blank">{url.clone_url}</a> <br />
                         Description : {url.description} <br />
                         Stars : {url.stargazers_count}  <br /> 
                         Fork : {url.forks_count} <br />
-                        SSH URL : {url.ssh_url}
+                        <hr />
                       </div>);
                   })
                   : <div>No repositories found.</div>

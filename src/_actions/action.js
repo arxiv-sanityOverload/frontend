@@ -2,11 +2,11 @@
 // import * as apiEndpoints from "../constants/apiEndpoints";
 import axios from "axios";
 
-export function fetchSubCategory(subCategory) {
+export function fetchSubCategory(subCategory, limit, offset) {
   return dispatch => {
     return dispatch({
       type: "SUBCATEGORY",
-      subCategory: axios.get(`http://localhost:3000/v1/${subCategory}/recents?limit=10&offset=10`)
+      subCategory: axios.get(`http://localhost:3000/v1/${subCategory}/recents?limit=${limit}&offset=${offset}`)
     })
     // .then(result => {
     //   console.log(result);

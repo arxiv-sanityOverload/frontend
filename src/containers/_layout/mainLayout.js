@@ -17,6 +17,7 @@ class MainLayout extends React.Component {
     super(props);
     this.state = { 
       categoryData: [],
+      primaryCategory: '',
     };
   }
 
@@ -25,9 +26,12 @@ class MainLayout extends React.Component {
       const promise = Promise.resolve(nextProps.subCategoryReducer);
       promise.then((value) => {
         value.data.then((categoryData) => {
-          this.setState({
-            categoryData: categoryData.data.result,
-          });
+          if(categoryData.data.result.length !== 0) {
+            this.setState({
+              categoryData: categoryData.data.result,
+              primaryCategory: categoryData.data.result[0].primary_category,
+            });
+          }
         });
       });   
     }
@@ -42,7 +46,7 @@ class MainLayout extends React.Component {
           <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
             <Switch>  
               <Route exact path="/category" render={routeProps => {
-                return <Category {...routeProps} categoryData = {this.state.categoryData}/>;
+                return <Category {...routeProps} categoryData = {this.state.categoryData} primaryCategory = {this.state.primaryCategory}/>;
               }} />
               <Route exact path="/community" render={routeProps => {
                 return <Community {...routeProps} />;
