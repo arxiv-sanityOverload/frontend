@@ -12,135 +12,135 @@ import {
 import TreeView from 'react-treeview';
 
 const dataSource = [{
-    type: 'Astrophysics',
-    collapsed: false,
-    code: 'astro-ph',
-    sub: [
-      {
-        name: 'Cosmology and Nongalactic Astrophysics',
-        code: 'astro-ph.CO',
-        collapsed: false
-      },
-      {
-        name: 'Earth and Planetary Astrophysics',
-        code: 'astro-ph.EP',
-        collapsed: false
-      },
-      {
-        name: 'Astrophysics of Galaxies',
-        code: 'astro-ph.GA',
-        collapsed: false
-      },
-      {
-        name: 'High Energy Astrophysical Phenomena',
-        code: 'astro-ph.HE',
-        collapsed: false
-      },
-      {
-        name: 'Instrumentation and Methods for Astrophysics',
-        code: 'astro-ph.IM',
-        collapsed: false
-      },
-      {
-        name: 'Solar and Stellar Astrophysics',
-        code: 'astro-ph.SR',
-        collapsed: false
-      },
-    ],
-  },
-  {
-    type: 'Condensed Matter',
-    collapsed: false,
-    code: 'cond-mat',
-    sub: [
-      {
-        name: 'Disordered Systems and Neural Networks',
-        code: 'cond-mat.dis-nn',
-        collapsed: false
-      },
-      {
-        name: 'Mesoscale and Nanoscale Physics',
-        code: 'cond-mat.mes-hall',
-        collapsed: false
-      },
-      {
-        name: 'Materials Science',
-        code: 'cond-mat.mtrl-sci',
-        collapsed: false
-      },
-      {
-        name: 'Other Condensed Matter',
-        code: 'cond-mat.other',
-        collapsed: false
-      },
-      {
-        name: 'Quantum Gases',
-        code: 'cond-mat.quant-gas',
-        collapsed: false
-      },
-      {
-        name: 'Soft Condensed Matter',
-        code: 'cond-mat.soft',
-        collapsed: false
-      },
-      {
-        name: 'Statistical Mechanics',
-        code: 'cond-mat.stat-mech',
-        collapsed: false
-      },
-      {
-        name: 'Strongly Correlated Electrons',
-        code: 'cond-mat.str-el',
-        collapsed: false
-      },
-      {
-        name: 'Superconductivity',
-        code: 'cond-mat.supr-con',
-        collapsed: false
-      },
-    ],
-  },
-  {
-    type: 'General Relativity and Quantum Cosmology',
-    collapsed: false,
-    code: 'gr-qc',
-    sub: [
-      {
+  type: 'Astrophysics',
+  collapsed: false,
+  code: 'astro-ph',
+  sub: [
+    {
+      name: 'Cosmology and Nongalactic Astrophysics',
+      code: 'astro-ph.CO',
+      collapsed: false
+    },
+    {
+      name: 'Earth and Planetary Astrophysics',
+      code: 'astro-ph.EP',
+      collapsed: false
+    },
+    {
+      name: 'Astrophysics of Galaxies',
+      code: 'astro-ph.GA',
+      collapsed: false
+    },
+    {
+      name: 'High Energy Astrophysical Phenomena',
+      code: 'astro-ph.HE',
+      collapsed: false
+    },
+    {
+      name: 'Instrumentation and Methods for Astrophysics',
+      code: 'astro-ph.IM',
+      collapsed: false
+    },
+    {
+      name: 'Solar and Stellar Astrophysics',
+      code: 'astro-ph.SR',
+      collapsed: false
+    },
+  ],
+},
+{
+  type: 'Condensed Matter',
+  collapsed: false,
+  code: 'cond-mat',
+  sub: [
+    {
+      name: 'Disordered Systems and Neural Networks',
+      code: 'cond-mat.dis-nn',
+      collapsed: false
+    },
+    {
+      name: 'Mesoscale and Nanoscale Physics',
+      code: 'cond-mat.mes-hall',
+      collapsed: false
+    },
+    {
+      name: 'Materials Science',
+      code: 'cond-mat.mtrl-sci',
+      collapsed: false
+    },
+    {
+      name: 'Other Condensed Matter',
+      code: 'cond-mat.other',
+      collapsed: false
+    },
+    {
+      name: 'Quantum Gases',
+      code: 'cond-mat.quant-gas',
+      collapsed: false
+    },
+    {
+      name: 'Soft Condensed Matter',
+      code: 'cond-mat.soft',
+      collapsed: false
+    },
+    {
+      name: 'Statistical Mechanics',
+      code: 'cond-mat.stat-mech',
+      collapsed: false
+    },
+    {
+      name: 'Strongly Correlated Electrons',
+      code: 'cond-mat.str-el',
+      collapsed: false
+    },
+    {
+      name: 'Superconductivity',
+      code: 'cond-mat.supr-con',
+      collapsed: false
+    },
+  ],
+},
+{
+  type: 'General Relativity and Quantum Cosmology',
+  collapsed: false,
+  code: 'gr-qc',
+  sub: [
+    {
       name: 'General Relativity and Quantum Cosmology',
       code: 'gr-qc',
       collapsed: false
-    }, ],
-  },
-  {
-    type: 'High Energy Physics',
-    collapsed: false,
-    code: 'hep-',
-    sub: [
-      {
-        name: 'High Energy Physics - Experiment',
-        code: 'hep-ex',
-        collapsed: false
-      }, {
-        name: 'High Energy Physics - Lattice',
-        code: 'hep-lat',
-        collapsed: false
-      }, {
-        name: 'High Energy Physics - Phenomenology',
-        code: 'hep-ph',
-        collapsed: false
-      }, {
-        name: 'High Energy Physics - Theory',
-        code: 'hep-th',
-        collapsed: false
-      },
-    ],
-  },
-  {
-    type: 'Nonlinear Sciences',
-    collapsed: false,
-    code: 'nlin',
-    sub: [
-      {
+    },],
+},
+{
+  type: 'High Energy Physics',
+  collapsed: false,
+  code: 'hep-',
+  sub: [
+    {
+      name: 'High Energy Physics - Experiment',
+      code: 'hep-ex',
+      collapsed: false
+    }, {
+      name: 'High Energy Physics - Lattice',
+      code: 'hep-lat',
+      collapsed: false
+    }, {
+      name: 'High Energy Physics - Phenomenology',
+      code: 'hep-ph',
+      collapsed: false
+    }, {
+      name: 'High Energy Physics - Theory',
+      code: 'hep-th',
+      collapsed: false
+    },
+  ],
+},
+{
+  type: 'Nonlinear Sciences',
+  collapsed: false,
+  code: 'nlin',
+  sub: [
+    {
       name: 'Adaptation and Self-Organizing Systems',
       code: 'nlin.AO',
       collapsed: false
@@ -161,13 +161,13 @@ const dataSource = [{
       code: 'nlin.SI',
       collapsed: false
     },],
-  },
-  {
-    type: 'Nuclear Experiment',
-    collapsed: false,
-    code: 'nucl',
-    sub: [
-      {
+},
+{
+  type: 'Nuclear Experiment',
+  collapsed: false,
+  code: 'nucl',
+  sub: [
+    {
       name: 'Nuclear Experiment',
       code: 'nucl-ex',
       collapsed: false
@@ -175,152 +175,152 @@ const dataSource = [{
       name: 'Nuclear Theory',
       code: 'nucl-th',
       collapsed: false
-    }, ],
-  },
-  {
-    type: 'Quantum Physics',
-    collapsed: false,
-    code: 'quant-ph',
-    sub: [],
-  },
-  {
-    type: 'Mathematics',
-    collapsed: false,
-    code: 'math',
-    sub: [
-      {
-        name: 'Commutative Algebra',
-        code: 'math.AC',
-        collapsed: false
-      }, {
-        name: 'Analysis of PDEs',
-        code: 'math.AP',
-        collapsed: false
-      }, {
-        name: 'Algebraic Topology',
-        code: 'math.AT',
-        collapsed: false
-      }, {
-        name: 'Classical Analysis and ODEs',
-        code: 'math.CA',
-        collapsed: false
-      }, {
-        name: 'Combinatorics',
-        code: 'math.CO',
-        collapsed: false
-      }, {
-        name: 'Category Theory',
-        code: 'math.CT',
-        collapsed: false
-      }, {
-        name: 'Complex Variables',
-        code: 'math.CV',
-        collapsed: false
-      }, {
-        name: 'Differential Geometry',
-        code: 'math.DG',
-        collapsed: false
-      }, {
-        name: 'Dynamical Systems',
-        code: 'math.DS',
-        collapsed: false
-      }, {
-        name: 'Functional Analysis',
-        code: 'math.FA',
-        collapsed: false
-      }, {
-        name: 'General Mathematics',
-        code: 'math.GM',
-        collapsed: false
-      }, {
-        name: 'General Topology',
-        code: 'math.GN',
-        collapsed: false
-      }, {
-        name: 'Group Theory',
-        code: 'math.GR',
-        collapsed: false
-      }, {
-        name: 'Geometric Topology',
-        code: 'math.GT',
-        collapsed: false
-      }, {
-        name: 'History and Overview',
-        code: 'math.MO',
-        collapsed: false
-      }, {
-        name: 'Information Theory',
-        code: 'math.IT',
-        collapsed: false
-      }, {
-        name: 'K-Theory and Homology',
-        code: 'math.KT',
-        collapsed: false
-      }, {
-        name: 'Logic',
-        code: 'math.LO',
-        collapsed: false
-      }, {
-        name: 'Metric Geometry',
-        code: 'math.MP',
-        collapsed: false
-      }, {
-        name: 'Mathematical Physics',
-        code: 'math.MP',
-        collapsed: false
-      }, {
-        name: 'Numerical Analysis',
-        code: 'math.NA',
-        collapsed: false
-      }, {
-        name: 'Number Theory',
-        code: 'math.MP',
-        collapsed: false
-      }, {
-        name: 'Operator Algebras',
-        code: 'math.OA',
-        collapsed: false
-      }, {
-        name: 'Optimization and Control',
-        code: 'math.OC',
-        collapsed: false
-      }, {
-        name: 'Probability',
-        code: 'math.PR',
-        collapsed: false
-      }, {
-        name: 'Quantum Algebra',
-        code: 'math.QA',
-        collapsed: false
-      }, {
-        name: 'Rings and Algebras',
-        code: 'math.RA',
-        collapsed: false
-      }, {
-        name: 'Symplectic Geometry',
-        code: 'math.SG',
-        collapsed: false
-      }, {
-        name: 'Spectral Theory',
-        code: 'math.SP',
-        collapsed: false
-      }, {
-        name: 'Statistics Theory',
-        code: 'math.ST',
-        collapsed: false
-      }, {
-        name: 'Mathematical Physics',
-        code: 'math-ph',
-        collapsed: false
-      },
-    ],
-  },
-  {
-    type: 'Computer Science',
-    collapsed: false,
-    code: 'cs',
-    sub: [
-      {
+    },],
+},
+{
+  type: 'Quantum Physics',
+  collapsed: false,
+  code: 'quant-ph',
+  sub: [],
+},
+{
+  type: 'Mathematics',
+  collapsed: false,
+  code: 'math',
+  sub: [
+    {
+      name: 'Commutative Algebra',
+      code: 'math.AC',
+      collapsed: false
+    }, {
+      name: 'Analysis of PDEs',
+      code: 'math.AP',
+      collapsed: false
+    }, {
+      name: 'Algebraic Topology',
+      code: 'math.AT',
+      collapsed: false
+    }, {
+      name: 'Classical Analysis and ODEs',
+      code: 'math.CA',
+      collapsed: false
+    }, {
+      name: 'Combinatorics',
+      code: 'math.CO',
+      collapsed: false
+    }, {
+      name: 'Category Theory',
+      code: 'math.CT',
+      collapsed: false
+    }, {
+      name: 'Complex Variables',
+      code: 'math.CV',
+      collapsed: false
+    }, {
+      name: 'Differential Geometry',
+      code: 'math.DG',
+      collapsed: false
+    }, {
+      name: 'Dynamical Systems',
+      code: 'math.DS',
+      collapsed: false
+    }, {
+      name: 'Functional Analysis',
+      code: 'math.FA',
+      collapsed: false
+    }, {
+      name: 'General Mathematics',
+      code: 'math.GM',
+      collapsed: false
+    }, {
+      name: 'General Topology',
+      code: 'math.GN',
+      collapsed: false
+    }, {
+      name: 'Group Theory',
+      code: 'math.GR',
+      collapsed: false
+    }, {
+      name: 'Geometric Topology',
+      code: 'math.GT',
+      collapsed: false
+    }, {
+      name: 'History and Overview',
+      code: 'math.MO',
+      collapsed: false
+    }, {
+      name: 'Information Theory',
+      code: 'math.IT',
+      collapsed: false
+    }, {
+      name: 'K-Theory and Homology',
+      code: 'math.KT',
+      collapsed: false
+    }, {
+      name: 'Logic',
+      code: 'math.LO',
+      collapsed: false
+    }, {
+      name: 'Metric Geometry',
+      code: 'math.MP',
+      collapsed: false
+    }, {
+      name: 'Mathematical Physics',
+      code: 'math.MP',
+      collapsed: false
+    }, {
+      name: 'Numerical Analysis',
+      code: 'math.NA',
+      collapsed: false
+    }, {
+      name: 'Number Theory',
+      code: 'math.MP',
+      collapsed: false
+    }, {
+      name: 'Operator Algebras',
+      code: 'math.OA',
+      collapsed: false
+    }, {
+      name: 'Optimization and Control',
+      code: 'math.OC',
+      collapsed: false
+    }, {
+      name: 'Probability',
+      code: 'math.PR',
+      collapsed: false
+    }, {
+      name: 'Quantum Algebra',
+      code: 'math.QA',
+      collapsed: false
+    }, {
+      name: 'Rings and Algebras',
+      code: 'math.RA',
+      collapsed: false
+    }, {
+      name: 'Symplectic Geometry',
+      code: 'math.SG',
+      collapsed: false
+    }, {
+      name: 'Spectral Theory',
+      code: 'math.SP',
+      collapsed: false
+    }, {
+      name: 'Statistics Theory',
+      code: 'math.ST',
+      collapsed: false
+    }, {
+      name: 'Mathematical Physics',
+      code: 'math-ph',
+      collapsed: false
+    },
+  ],
+},
+{
+  type: 'Computer Science',
+  collapsed: false,
+  code: 'cs',
+  sub: [
+    {
       name: 'Artificial Intelligence',
       code: 'cs.AI',
       collapsed: false
@@ -482,137 +482,137 @@ const dataSource = [{
       name: 'Systems and Control',
       code: 'cs.SY',
       collapsed: false
-    }, 
+    },
   ],
-  },
-  {
-    type: 'Electrical Engineering and Systems Science',
-    collapsed: false,
-    code: 'eess',
-    sub: [
-      {
-        name: 'Audio and Speech Processing',
-        code: 'eess.AS',
-        collapsed: false
-      },
-      {
-        name: 'Image and Video Processing',
-        code: 'eess.IV',
-        collapsed: false
-      }, {
-        name: 'Signal Processing',
-        code: 'eess.SP',
-        collapsed: false
-      },
-    ],
-  },
-  {
-    type: 'Physics',
-    collapsed: false,
-    code: 'physics',
-    sub: [
-       {
-         name: 'Accelerator Physics',
-         code: 'physics.acc-ph',
-         collapsed: false
-       },
-       {
-         name: 'Atmospheric and Oceanic Physics',
-         code: 'physics.ao-ph',
-         collapsed: false
-       }, {
-         name: 'Applied Physics',
-         code: 'physics.acc-ph',
-         collapsed: false
-       }, {
-         name: 'Accelerator Physics',
-         code: 'physics.app-ph',
-         collapsed: false
-       }, {
-         name: 'Atomic and Molecular Clusters',
-         code: 'physics..atm-clus',
-         collapsed: false
-       }, {
-         name: 'Atomic Physics',
-         code: 'physics.atom-ph',
-         collapsed: false
-       }, {
-         name: 'Biological Physics',
-         code: 'physics.bio-ph',
-         collapsed: false
-       }, {
-         name: 'Chemical Physics',
-         code: 'physics.chem-ph',
-         collapsed: false
-       }, {
-         name: 'Classical Physics',
-         code: 'physics.class-ph',
-         collapsed: false
-       }, {
-         name: 'Computational Physics',
-         code: 'physics.comp-ph',
-         collapsed: false
-       }, {
-         name: 'Data Analysis, Statistics and Probability',
-         code: 'physics..data-an',
-         collapsed: false
-       }, {
-         name: 'Physics Education',
-         code: 'physics.ed-ph',
-         collapsed: false
-       }, {
-         name: 'Fluid Dynamics',
-         code: 'physics..flu-dyn',
-         collapsed: false
-       }, {
-         name: 'General Physics',
-         code: 'physics.gen-ph',
-         collapsed: false
-       }, {
-         name: 'Geophysics',
-         code: 'physics.geo-ph',
-         collapsed: false
-       }, {
-         name: 'History and Philosophy of Physics',
-         code: 'physics.hist-ph',
-         collapsed: false
-       }, {
-         name: 'Instrumentation and Detectors',
-         code: 'physics.ins-det',
-         collapsed: false
-       }, {
-         name: 'Medical Physics',
-         code: 'physics.med-ph',
-         collapsed: false
-       }, {
-         name: 'Optics',
-         code: 'physics.optics',
-         collapsed: false
-       }, {
-         name: 'Plasma Physics',
-         code: 'physics.plasm-ph',
-         collapsed: false
-       }, {
-         name: 'Popular Physics',
-         code: 'physics.pop-ph',
-         collapsed: false
-       }, {
-         name: 'Physics and Society',
-         code: 'physics.soc-ph',
-         collapsed: false
-       }, {
-         name: 'Space Physics',
-         code: 'physics.space-ph',
-         collapsed: false
-       },
-    ],
-  },
-  {
-    type: 'Statistics',
-    collapsed: false,
-    code: '',
-    sub: [
-      {
+},
+{
+  type: 'Electrical Engineering and Systems Science',
+  collapsed: false,
+  code: 'eess',
+  sub: [
+    {
+      name: 'Audio and Speech Processing',
+      code: 'eess.AS',
+      collapsed: false
+    },
+    {
+      name: 'Image and Video Processing',
+      code: 'eess.IV',
+      collapsed: false
+    }, {
+      name: 'Signal Processing',
+      code: 'eess.SP',
+      collapsed: false
+    },
+  ],
+},
+{
+  type: 'Physics',
+  collapsed: false,
+  code: 'physics',
+  sub: [
+    {
+      name: 'Accelerator Physics',
+      code: 'physics.acc-ph',
+      collapsed: false
+    },
+    {
+      name: 'Atmospheric and Oceanic Physics',
+      code: 'physics.ao-ph',
+      collapsed: false
+    }, {
+      name: 'Applied Physics',
+      code: 'physics.acc-ph',
+      collapsed: false
+    }, {
+      name: 'Accelerator Physics',
+      code: 'physics.app-ph',
+      collapsed: false
+    }, {
+      name: 'Atomic and Molecular Clusters',
+      code: 'physics..atm-clus',
+      collapsed: false
+    }, {
+      name: 'Atomic Physics',
+      code: 'physics.atom-ph',
+      collapsed: false
+    }, {
+      name: 'Biological Physics',
+      code: 'physics.bio-ph',
+      collapsed: false
+    }, {
+      name: 'Chemical Physics',
+      code: 'physics.chem-ph',
+      collapsed: false
+    }, {
+      name: 'Classical Physics',
+      code: 'physics.class-ph',
+      collapsed: false
+    }, {
+      name: 'Computational Physics',
+      code: 'physics.comp-ph',
+      collapsed: false
+    }, {
+      name: 'Data Analysis, Statistics and Probability',
+      code: 'physics..data-an',
+      collapsed: false
+    }, {
+      name: 'Physics Education',
+      code: 'physics.ed-ph',
+      collapsed: false
+    }, {
+      name: 'Fluid Dynamics',
+      code: 'physics..flu-dyn',
+      collapsed: false
+    }, {
+      name: 'General Physics',
+      code: 'physics.gen-ph',
+      collapsed: false
+    }, {
+      name: 'Geophysics',
+      code: 'physics.geo-ph',
+      collapsed: false
+    }, {
+      name: 'History and Philosophy of Physics',
+      code: 'physics.hist-ph',
+      collapsed: false
+    }, {
+      name: 'Instrumentation and Detectors',
+      code: 'physics.ins-det',
+      collapsed: false
+    }, {
+      name: 'Medical Physics',
+      code: 'physics.med-ph',
+      collapsed: false
+    }, {
+      name: 'Optics',
+      code: 'physics.optics',
+      collapsed: false
+    }, {
+      name: 'Plasma Physics',
+      code: 'physics.plasm-ph',
+      collapsed: false
+    }, {
+      name: 'Popular Physics',
+      code: 'physics.pop-ph',
+      collapsed: false
+    }, {
+      name: 'Physics and Society',
+      code: 'physics.soc-ph',
+      collapsed: false
+    }, {
+      name: 'Space Physics',
+      code: 'physics.space-ph',
+      collapsed: false
+    },
+  ],
+},
+{
+  type: 'Statistics',
+  collapsed: false,
+  code: '',
+  sub: [
+    {
       name: 'Applications',
       code: 'stat.AP',
       collapsed: false
@@ -637,13 +637,13 @@ const dataSource = [{
       code: 'stat.TH',
       collapsed: false
     },],
-  },
-  {
-    type: 'Quantitative Biology',
-    collapsed: false,
-    code: '',
-    sub: [
-      {
+},
+{
+  type: 'Quantitative Biology',
+  collapsed: false,
+  code: '',
+  sub: [
+    {
       name: 'Biomolecules',
       code: 'q-bio.BM',
       collapsed: false
@@ -683,13 +683,14 @@ const dataSource = [{
       name: 'Tissues and Organs',
       code: 'q-bio.TO',
       collapsed: false
-    },],},
- {
-   type: 'Quantitative Finance',
-   collapsed: false,
-   code: 'q-fin',
-   sub: [
-     {
+    },],
+},
+{
+  type: 'Quantitative Finance',
+  collapsed: false,
+  code: 'q-fin',
+  sub: [
+    {
       name: 'Computational Finance',
       code: 'q-fin.CP',
       collapsed: false
@@ -726,7 +727,7 @@ const dataSource = [{
       code: 'q-fin.TR',
       collapsed: false
     },],
-  }
+}
 ];
 
 class SubCategory extends React.Component {
@@ -749,37 +750,37 @@ class SubCategory extends React.Component {
       console.log(value);
     });
 
-    return ( 
-      <div className = "b" > {
+    return (
+      <div className="b" > {
         dataSource.map((node, i) => {
           const type = node.type;
-          const label = <span className = "node" > {
+          const label = <span className="node" > {
             type
           } </span>;
-          return ( 
-            <TreeView key = {
+          return (
+            <TreeView key={
               type + '|' + i
             }
-            nodeLabel = {
-              label
-            }
-            defaultCollapsed = {
-              true
-            } > {
-              node.sub.map(sub => {
-                const subCode = `http://localhost:3000/v1/${sub.code}/recents`;
-                return ( <div className = "info" >
-                  <a href = "#"
-                  onClick = {
-                    (e) => this.handleClick(e, sub.code)
-                  } >
-                  {
-                    sub.name
-                  } </a> <br/> <br/>
+              nodeLabel={
+                label
+              }
+              defaultCollapsed={
+                true
+              } > {
+                node.sub.map(sub => {
+                  const subCode = `http://localhost:3000/v1/${sub.code}/sorted`;
+                  return (<div className="info" >
+                    <a href="#"
+                      onClick={
+                        (e) => this.handleClick(e, sub.code)
+                      } >
+                      {
+                        sub.name
+                      } </a> <br /> <br />
                   </div>
-                );
-              })
-            } </TreeView>
+                  );
+                })
+              } </TreeView>
           );
         })
       } </div>
