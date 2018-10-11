@@ -1,51 +1,39 @@
-// import axios from "axios";
-// import * as apiEndpoints from "../constants/apiEndpoints";
 import axios from "axios";
 
 export function fetchSubCategory(subCategory, limit, offset) {
   return dispatch => {
-    return dispatch({
-      type: "SUBCATEGORY",
-      subCategory: axios.get(`http://localhost:3000/v1/${subCategory}/recents?limit=${limit}&offset=${offset}`)
+    axios.get(`http://localhost:3000/v1/${subCategory}/sorted?limit=${limit}&offset=${offset}`)
+      .then(response => {
+        dispatch({
+          type: "SUBCATEGORY_FULFILLED",
+          subCategory: response.data,
+        })
+      }) 
+      .catch(error => {
+        dispatch({
+          type: "SUBCATEGORY_REJECTED",
+          subCategory: error,
+      })
     })
-    // .then(result => {
-    //   console.log(result);
-    // }).catch(error => {
-    //   console.log(error);
-    // })
-    ;
-  };
+  }
 }
 
 export function fetchGithubSearch(title) {
   return dispatch => {
-    return dispatch({
-      type: "GITHUB",
-      githubData: axios.get(`https://api.github.com/search/repositories?q=${title}&sort=stars&order=desc`)
-    })
-    // .then(result => {
-    //   console.log(result);
-    // }).catch(error => {
-    //   console.log(error);
-    // })
-    ;
-  };
-}
-
-
-
-export function action(payload) {
-  return dispatch => {
-    return dispatch({
-      type: "ACTION",
-      // payload: axios.get(apiEndpoints.test)
-      payload: Promise.resolve(payload)
-    })
+    axios.get(`https://api.github.com/search/repositories?q=${title}&sort=stars&order=desc`)
       .then(response => {
-        console.log(response);
+        if(response.data.total_count !== 0) {
+          dispatch({
+            type: "GITHUB_FULFILLED",
+            githubData: response.data,
+          })
+        }  
       })
       .catch(error => {
-        console.log(error);
-      });
-  };
+        dispatch({
+          type: "GITHUB_REJECTED",
+          githubData: error,
+      })
+    })
+  }
 }

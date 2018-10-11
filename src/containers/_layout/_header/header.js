@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Link }  from 'react-router-dom';
-import { Layout, Menu, Icon,  Breadcrumb, Button } from 'antd';
-import CategoryMenu from '../_categoryMenu/categoryMenu';
+import { Link }  from 'react-router-dom';
+import { Layout, Menu } from 'antd';
 import CategoryDrawer from '../_categoryMenu/categoryDrawer';
 
-const { Header, Sider, Content, Footer } = Layout;
+const { Header } = Layout;
 
 class NavigationBar extends React.Component {
   state = {

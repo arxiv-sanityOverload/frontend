@@ -11,18 +11,14 @@ export function subCategoryReducer(
         return {
           ...state,
           processing: true,
-          // error: null
           error: false
         };
       }
-      case "SUBCATEGORY": {
+      case "SUBCATEGORY_FULFILLED": {
         return {
           ...state,
           processing: false,
-          // data: action.payload.data.result,
-          // data: action.payload.text,
           data: action.subCategory,
-          // error: null
           error: false
         };
       }
@@ -30,7 +26,6 @@ export function subCategoryReducer(
         return {
           ...state,
           processing: false,
-          // error: action.payload
           error: true
         };
       }
