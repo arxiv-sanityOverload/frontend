@@ -9,7 +9,6 @@ class CardWithTabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      githubURL: [],
       checkData: false,
     };
   }
@@ -23,13 +22,13 @@ class CardWithTabs extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.githubReducer !== this.props.githubReducer){
       this.setState({
-        githubURL: nextProps.githubReducer.data.items,
         checkData: true,
       });
     }
   }
 
   render() {
+    const githubList = this.props.githubReducer.data.items;
     return (
       <div>
         <Card>
@@ -67,9 +66,9 @@ class CardWithTabs extends React.Component {
               <div>
                 { 
                   (this.state.checkData) ? 
-                    this.state.githubURL.map((url, index) => {
+                  githubList.map((url, index) => {
                     return (
-                      <div>
+                      <div key={index}>
                         Github Link:  <a href={url.clone_url} target="_blank">{url.clone_url}</a> <br />
                         Description : {url.description} <br />
                         Stars : {url.stargazers_count}  <br /> 

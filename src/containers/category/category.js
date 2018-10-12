@@ -47,9 +47,9 @@ class Category extends React.Component {
             <List
               grid={{ gutter: 16, column: 1 }}
               dataSource={data}
-              renderItem={item => (
+              renderItem={(item,key) => (
                   <List.Item style={{ background: '#fff' }}>
-                    <CardWithTabs itemName = {item}/>
+                    <CardWithTabs itemName = {item} key={key}/>
                   </List.Item>
                 )}
             />
