@@ -1,28 +1,28 @@
-export function subCategoryReducer(
+export function githubReducer(
     state = {
       processing: false,
-      data: null,
+      data: [],
       error: null
     },
     action
   ) {
     switch (action.type) {
-      case "SUBCATEGORY_PENDING": {
+      case "GITHUB_FULFILLED": {
+        return {
+          ...state,
+          processing: false,
+          data: action.githubData,
+          error: false
+        };
+      }
+      case "GITHUB_PENDING": {
         return {
           ...state,
           processing: true,
           error: false
         };
       }
-      case "SUBCATEGORY_FULFILLED": {
-        return {
-          ...state,
-          processing: false,
-          data: action.subCategory,
-          error: false
-        };
-      }
-      case "SUBCATEGORY_REJECTED": {
+      case "GITHUB_REJECTED": {
         return {
           ...state,
           processing: false,
@@ -33,4 +33,3 @@ export function subCategoryReducer(
         return state;
     }
   }
-  
